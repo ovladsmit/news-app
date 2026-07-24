@@ -1,11 +1,10 @@
 import { Link, Route, Routes } from "react-router-dom"
 import './styles/index.scss'
-import { MainPageAsync } from "./pages/MainPage/MainPage.async"
-import { AboutPageAsync } from "./pages/AboutPage/AboutPage.async"
-import { Suspense, useContext, useState } from "react"
-import { ThemeContext } from "./theme/ThemeContext"
-import { useTheme } from "./theme/useTheme"
+import { Suspense } from "react"
+import { useTheme } from "app/providers/ThemeProvider"
 import clsx from "clsx"
+import { AboutPage } from "pages/AboutPage"
+import { MainPage } from "pages/MainPage"
 export enum Theme {
   LIGHT = 'light',
   DARK = 'dark'
@@ -13,7 +12,7 @@ export enum Theme {
 
 
 export const App = () => {
-  const {theme, toogleTheme} = useTheme()
+  const { theme, toogleTheme } = useTheme()
 
   return (
     <div className={clsx('app', theme)}>
@@ -22,8 +21,8 @@ export const App = () => {
       <Link to={'/about'}>О сайте</Link>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path={'/'} element={<MainPageAsync/>}/>
-          <Route path={'/about'} element={<AboutPageAsync/>}/>
+          <Route path={'/'} element={<MainPage />} />
+          <Route path={'/about'} element={<AboutPage />} />
         </Routes>
       </Suspense>
     </div>

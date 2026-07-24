@@ -4,6 +4,7 @@ export interface BuildPaths {//Пути до входа в проект, в па
   entry: string;
   build: string;
   html: string;
+  src: string
 }
 export interface BuildEnv {
   mode:BuildMode;
