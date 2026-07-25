@@ -5,6 +5,7 @@ import { useTheme } from "app/providers/ThemeProvider"
 import clsx from "clsx"
 import { AboutPage } from "pages/AboutPage"
 import { MainPage } from "pages/MainPage"
+import { AppRouter } from "app/providers/router"
 export enum Theme {
   LIGHT = 'light',
   DARK = 'dark'
@@ -19,12 +20,7 @@ export const App = () => {
       <button onClick={toogleTheme}>TOGGLE</button>
       <Link to={'/'}>Главная</Link>
       <Link to={'/about'}>О сайте</Link>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path={'/'} element={<MainPage />} />
-          <Route path={'/about'} element={<AboutPage />} />
-        </Routes>
-      </Suspense>
+      <AppRouter/>
     </div>
   )
 }
