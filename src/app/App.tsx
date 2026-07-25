@@ -6,6 +6,7 @@ import clsx from "clsx"
 import { AboutPage } from "pages/AboutPage"
 import { MainPage } from "pages/MainPage"
 import { AppRouter } from "app/providers/router"
+import { Navbar } from "widgets/Navbar"
 export enum Theme {
   LIGHT = 'light',
   DARK = 'dark'
@@ -17,9 +18,8 @@ export const App = () => {
 
   return (
     <div className={clsx('app', theme)}>
+      <Navbar/>
       <button onClick={toogleTheme}>TOGGLE</button>
-      <Link to={'/'}>Главная</Link>
-      <Link to={'/about'}>О сайте</Link>
       <AppRouter/>
     </div>
   )
