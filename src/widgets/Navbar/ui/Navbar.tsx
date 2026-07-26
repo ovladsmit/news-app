@@ -2,6 +2,7 @@ import clsx from "clsx"
 import { Link } from "react-router-dom"
 import styles from './Navbar.module.scss'
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink"
+import { ThemeSwitcher } from "shared/ui/ThemeSwitcher"
 interface NavbarProps {
   /**Доп классы */
   className?: string
@@ -10,6 +11,7 @@ interface NavbarProps {
 export const Navbar = ({className}: NavbarProps) => {
   return(
     <div className={clsx(styles.navbar)}>
+      <ThemeSwitcher />
       <div className={clsx(styles.links)}>
         <AppLink theme={AppLinkTheme.SECONDARY} to={'/'} className={clsx(styles.mainLink)}>Главная</AppLink>
         <AppLink theme={AppLinkTheme.SECONDARY} to={'/about'}>О сайте</AppLink>

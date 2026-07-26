@@ -14,12 +14,11 @@ export enum Theme {
 
 
 export const App = () => {
-  const { theme, toogleTheme } = useTheme()
+  const {theme} = useTheme()
 
   return (
     <div className={clsx('app', theme)}>
       <Navbar/>
-      <button onClick={toogleTheme}>TOGGLE</button>
       <AppRouter/>
     </div>
   )
