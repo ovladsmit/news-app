@@ -7,6 +7,7 @@ import { AboutPage } from "pages/AboutPage"
 import { MainPage } from "pages/MainPage"
 import { AppRouter } from "app/providers/router"
 import { Navbar } from "widgets/Navbar"
+import { Sidebar } from "widgets/Sidebar"
 export enum Theme {
   LIGHT = 'light',
   DARK = 'dark'
@@ -19,7 +20,10 @@ export const App = () => {
   return (
     <div className={clsx('app', theme)}>
       <Navbar/>
-      <AppRouter/>
+      <div className='content-page'>
+        <Sidebar/>
+        <AppRouter/>
+      </div>
     </div>
   )
 }
