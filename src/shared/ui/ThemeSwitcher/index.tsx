@@ -1,2 +1,3 @@
 import { ThemeSwitcher } from "./ui/ThemeSwitcher";
-export {ThemeSwitcher}
+import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
+export {ThemeSwitcher, LangSwitcher}
