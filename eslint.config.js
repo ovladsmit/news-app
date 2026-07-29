@@ -4,6 +4,7 @@ const reactPlugin = require('eslint-plugin-react');
 const importPlugin = require('eslint-plugin-import');
 const tsPlugin = require('@typescript-eslint/eslint-plugin');
 const tsParser = require('@typescript-eslint/parser');
+const i18nextPlugin = require('eslint-plugin-i18next');
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
@@ -70,6 +71,7 @@ module.exports = [
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
+      i18next: i18nextPlugin,
     },
     rules: {
       'no-undef': 'off',
@@ -78,7 +80,8 @@ module.exports = [
       'react/require-default-props': 'off',
       'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
       'no-underscore-dangle': ['error', { allow: ['__IS_DEV__'] }],
-      'react/jsx-props-no-spreading': 'warn'
+      'react/jsx-props-no-spreading': 'warn',
+      'i18next/no-literal-string': 'warn',
     },
   },
 ];
