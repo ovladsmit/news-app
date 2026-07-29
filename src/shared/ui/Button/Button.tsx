@@ -1,21 +1,24 @@
 import { ButtonHTMLAttributes } from 'react';
-import styles from './Button.module.scss'
 import clsx from 'clsx';
+import styles from './Button.module.scss';
+
 export enum ThemeButton {
   CLEAR = 'clear'
 }
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
-  /*Доп классы*/
+  /* Доп классы */
   className?: string;
   /** Тема кнопки */
   theme?: ThemeButton;
-  
+
 }
 
-export const Button = ({className, children, theme = ThemeButton.CLEAR, ...otherProps}: ButtonProps) => {
+export function Button({
+  className, children, theme = ThemeButton.CLEAR, ...otherProps
+}: ButtonProps) {
   return (
-    <button className={clsx(className, styles.button, styles[theme])} {...otherProps}>
+    <button type="button" className={clsx(className, styles.button, styles[theme])} {...otherProps}>
       {children}
     </button>
   );
-};
+}

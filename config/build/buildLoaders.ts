@@ -37,6 +37,7 @@ export function buildLoaders(options: BuildOption): webpack.RuleSetRule[] { // Ð
             loader: 'file-loader'
           }
         ]
-      }
+      },
+      
     ]
 }
