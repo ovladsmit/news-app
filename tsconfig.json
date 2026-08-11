@@ -12,15 +12,17 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "types": ["jest"]
   },
-  "include": ["src/**/*",  "config/**/*", "webpack.config.ts"],
+  "include": ["src/**/*", "config/**/*", "webpack.config.ts"],
   "exclude": ["node_modules"],
   "ts-node": {
     "transpileOnly": true,
     "compilerOptions": {
       "module": "commonjs",
-      "moduleResolution": "node"
+      "moduleResolution": "node",
+      "types": ["jest"]
     }
   }
 }
