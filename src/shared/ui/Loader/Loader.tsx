@@ -1,12 +1,7 @@
 import './Loader.scss'
 
-interface LoaderProps {
-  /*Доп классы*/
-  className?: string;
-  
-}
 
-export const Loader = (props: LoaderProps) => {
+export const Loader = () => {
   return (
     <span className={"loader"} >
       
