@@ -3,6 +3,7 @@ import path from "node:path";
 import webpack from "webpack";
 import { BuildOption } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
+import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer"
 
 
 export function buildPlugins({paths, isDev}: BuildOption): webpack.WebpackPluginInstance[] { // Плагины для вебпака
@@ -23,6 +24,11 @@ export function buildPlugins({paths, isDev}: BuildOption): webpack.WebpackPlugin
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev)
     }),
-    new webpack.HotModuleReplacementPlugin()
+    // Включает горячую замену модулей без полной перезагрузки страницы
+    new webpack.HotModuleReplacementPlugin(),
+    //строит наглядную визуализацию того, из чего состоит итоговый JS-бандл после сборки
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false
+    })
   ]
 }

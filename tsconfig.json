@@ -15,7 +15,7 @@
     "allowSyntheticDefaultImports": true,
     "types": ["jest"]
   },
-  "include": ["src/**/*", "config/**/*", "webpack.config.ts"],
+  "include": ["src/**/*", "config/**/*", "webpack.config.ts", "./config/jest/jestSetup.ts"],
   "exclude": ["node_modules"],
   "ts-node": {
     "transpileOnly": true,
