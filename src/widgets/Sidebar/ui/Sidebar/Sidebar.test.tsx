@@ -4,9 +4,9 @@ describe("Sidebar" , () => {
   test("Сайдбар отображается", () => {
     render(<Sidebar/>)
     expect(screen.getByTestId("sidebar")).toBeInTheDocument()
-  }),
+  })
 
-  test("Сайдбар отображается", () => {
+  test("Сайдбар отображается и раскрывается", () => {
     render(<Sidebar/>)
     const toggleButton = screen.getByTestId('sidebar-toggle')
     expect(screen.getByTestId("sidebar")).toBeInTheDocument()

@@ -4,7 +4,7 @@ describe("Button" , () => {
   test("Кнопка отображается", () => {
     render(<Button>TEST</Button>)
     expect(screen.getByText("TEST")).toBeInTheDocument()
-  }),
+  })
 
   test("Тест темы", () => {
     render(<Button theme={ThemeButton.CLEAR}>TEST</Button>)
