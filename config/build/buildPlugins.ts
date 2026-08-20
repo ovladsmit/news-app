@@ -1,5 +1,4 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import path from "node:path";
 import webpack from "webpack";
 import { BuildOption } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -11,15 +10,10 @@ export function buildPlugins({
 }: BuildOption): webpack.WebpackPluginInstance[] {
   // Плагины для вебпака
   const plugins: webpack.WebpackPluginInstance[] = [
-    //автоматически генерирует итоговый index.html в папке сборки и сам подключает туда <script>
     new HtmlWebpackPlugin({
-      template: paths.html, //указывает, какой HTML-файл использовать как основу/
+      template: paths.html,
     }),
-
-    //просто показывает прогресс сборки в процентах прямо в консоли
     new webpack.ProgressPlugin(),
-
-    // вытаскивает CSS в отдельные .css-файлы, вместо того чтобы вставлять стили прямо в JS
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash:8].css",
       chunkFilename: "css/[name].[contenthash:8].css",
@@ -27,21 +21,18 @@ export function buildPlugins({
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
-    // Включает горячую замену модулей без полной перезагрузки страницы
-
-    //строит наглядную визуализацию того, из чего состоит итоговый JS-бандл после сборки
+    // строит наглядную визуализацию того, из чего состоит итоговый JS-бандл после сборки
     new BundleAnalyzerPlugin({
+      analyzerMode: "static", // пишет HTML-отчёт в файл вместо поднятия сервера
       openAnalyzer: false,
+      reportFilename: "bundle-report.html",
     }),
   ];
+
   if (isDev) {
     plugins.push(
       // Включает горячую замену модулей без полной перезагрузки страницы
       new webpack.HotModuleReplacementPlugin(),
-      //строит наглядную визуализацию того, из чего состоит итоговый JS-бандл после сборки
-      new BundleAnalyzerPlugin({
-        openAnalyzer: false,
-      }),
     );
   }
 
