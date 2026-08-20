@@ -18,6 +18,7 @@
   color: var(--primary-color);
   background: none;
 }
+
 .background{
   background: var(--bg-color);
   color: var(--primary-color);
@@ -29,19 +30,23 @@
   color: var(--inverted-primary-color);
   border: none;
 }
+
 .square{
   padding: 0;
 }
+
 .square.sizeM{
   width: var(--font-line-m);
   height: var(--font-line-m);
   font: var(--font-m);
 }
+
 .square.sizeL{
   width: var(--font-line-l);
   height: var(--font-line-l);
   font: var(--font-l);
 }
+
 .square.sizeXl {
   width: var(--font-line-xl);
   height: var(--font-line-xl);
