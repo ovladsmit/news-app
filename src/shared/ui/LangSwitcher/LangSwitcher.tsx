@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import { Button, ThemeButton } from '../Button/Button';
-import styles from './LangSwitcher.module.scss'
 interface LangSwitcherProps {
   /* Доп классы */
   className?: string;
