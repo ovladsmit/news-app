@@ -14,8 +14,7 @@ export function Navbar({ className }: NavbarProps) {
   return (
     <div className={clsx(styles.navbar, className)}>
       <div className={clsx(styles.links)}>
-        <AppLink theme={AppLinkTheme.SECONDARY} to="/" className={clsx(styles.mainLink)}>{t('Основная страница')}</AppLink>
-        <AppLink theme={AppLinkTheme.SECONDARY} to="/about">{t('О сайте')}</AppLink>
+        /
       </div>
     </div>
   );

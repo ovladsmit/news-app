@@ -4,21 +4,33 @@ import styles from './Button.module.scss';
 
 export enum ThemeButton {
   CLEAR = 'clear',
-  OUTLINE = 'outline'
+  OUTLINE = 'outline',
+  BACKGROUND = 'background',
+  BACKGROUND_INVERTED = 'backgroundInverted'
+}
+
+export enum ButtonSize{
+  M = 'sizeM',
+  L = 'sizeL',
+  XL = 'sizeXl'
 }
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   /* Доп классы */
   className?: string;
   /** Тема кнопки */
   theme?: ThemeButton;
+  /**Режим квадратной кнопки*/
+  square?: boolean;
+  /**Размер кнопки*/
+  size?: ButtonSize;
 
 }
 
 export function Button({
-  className, children, theme = ThemeButton.CLEAR, ...otherProps
+  className, children, theme = ThemeButton.CLEAR, square = false,size = ButtonSize.M , ...otherProps
 }: ButtonProps) {
   return (
-    <button type="button" className={clsx(className, styles.button, styles[theme])} {...otherProps}>
+    <button type="button" className={clsx(className, styles.button, styles[theme], {[styles.square]: square}, styles[size])} {...otherProps}>
       {children}
     </button>
   );
