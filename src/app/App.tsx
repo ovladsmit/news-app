@@ -1,11 +1,10 @@
-import './styles/index.scss';
+
 import { Suspense} from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
 import clsx from 'clsx';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-
 export enum Theme {
   LIGHT = 'light',
   DARK = 'dark'
@@ -13,6 +12,7 @@ export enum Theme {
 
 export function App() {
   const { theme } = useTheme();
+
   return (
     <div className={clsx('app', theme)}>
       <Suspense fallback="">

@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import AboutIcon from 'shared/assets/icons/about.svg'
 import MainIcon from 'shared/assets/icons/main.svg'
+
 interface SidebarProps {
   /* Доп классы */
   className?: string;
@@ -30,7 +31,7 @@ export function Sidebar({ className }: SidebarProps) {
 
         <AppLink
           theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.about}
+          to={RoutePath.main}
           className={styles.item}
 
         >
