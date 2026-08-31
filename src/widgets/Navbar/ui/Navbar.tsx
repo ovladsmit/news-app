@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import styles from './Navbar.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Modal } from 'shared/ui/Modal/Modal';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';

@@ -1,5 +1,4 @@
 import { Modal } from 'shared/ui/Modal/Modal';
-import styles from './LoginModal.module.scss';
 import { LoginForm } from '../LoginForm/LoginForm';
 interface LoginModalProps {
   /*Доп классы*/

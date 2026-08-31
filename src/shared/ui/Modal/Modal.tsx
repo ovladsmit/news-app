@@ -23,11 +23,9 @@ export const Modal = ({ className, lazy, children, isOpen, onClose }: ModalProps
   const [isMounted, setIsMounted] = useState(false)
   const {theme} = useTheme()
   const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
-  useEffect(() => {
-    if(isOpen) {
-      setIsMounted(true)
-    }
-  }, [isOpen])
+  if (isOpen && !isMounted) {
+    setIsMounted(true)
+  }
   const closeHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true)

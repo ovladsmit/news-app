@@ -36,8 +36,9 @@ export const Input = memo(({ className, autofocus, value, onChange, type = 'text
     setIsFocused(true)
   }
 
-  const onSelect = (e: any) => {
-    setCaretPosition(e?.target?.selectionStart || 0)
+  const onSelect = (e: React.SyntheticEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement
+    setCaretPosition(target?.selectionStart || 0)
   }
   return (
     <div className={clsx(className, styles.inputWrapper)}>
@@ -51,3 +52,5 @@ export const Input = memo(({ className, autofocus, value, onChange, type = 'text
     </div>
   );
 });
+
+Input.displayName = 'Input'
