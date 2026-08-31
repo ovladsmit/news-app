@@ -12,14 +12,22 @@ interface ModalProps {
   isOpen?: boolean
   /**Функция закрытия*/
   onClose?: () => void;
+  /**Ленивая подгрузка*/
+  lazy?: boolean;
 }
 
 
 
-export const Modal = ({ className, children, isOpen, onClose }: ModalProps) => {
+export const Modal = ({ className, lazy, children, isOpen, onClose }: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
   const {theme} = useTheme()
   const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  useEffect(() => {
+    if(isOpen) {
+      setIsMounted(true)
+    }
+  }, [isOpen])
   const closeHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true)
@@ -46,6 +54,10 @@ export const Modal = ({ className, children, isOpen, onClose }: ModalProps) => {
       window.removeEventListener("keydown", onKeyDown)
     }
   }, [isOpen, onKeyDown])
+
+  if(lazy && !isMounted) {
+    return null
+  }
   return (
     <Portal>
       <div className={clsx(className, styles.modal, theme, "app_modal", { [styles.opened]: isOpen }, { [styles.isClosing]: isClosing })}>
