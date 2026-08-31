@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import styles from './Modal.module.scss';
 import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { Portal } from '../Portal/Portal';
+import { useTheme } from 'app/providers/ThemeProvider';
 interface ModalProps {
   /*Доп классы*/
   className?: string;
@@ -17,6 +18,7 @@ interface ModalProps {
 
 export const Modal = ({ className, children, isOpen, onClose }: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false)
+  const {theme} = useTheme()
   const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const closeHandler = useCallback(() => {
     if (onClose) {
@@ -46,7 +48,7 @@ export const Modal = ({ className, children, isOpen, onClose }: ModalProps) => {
   }, [isOpen, onKeyDown])
   return (
     <Portal>
-      <div className={clsx(className, styles.modal, { [styles.opened]: isOpen }, { [styles.isClosing]: isClosing })}>
+      <div className={clsx(className, styles.modal, theme, "app_modal", { [styles.opened]: isOpen }, { [styles.isClosing]: isClosing })}>
         <div className={styles.overlay} onClick={closeHandler}>
           <div className={clsx(styles.content)} onClick={onContentClick}>
             {children}
