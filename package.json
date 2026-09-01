@@ -14,7 +14,8 @@
     "lint:css:fix": "stylelint \"src/**/*.scss\" --fix",
     "test": "jest --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build-storybook": "storybook build -c ./config/storybook"
+    "build-storybook": "storybook build -c ./config/storybook",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -44,6 +45,7 @@
     "eslint-plugin-storybook": "^10.5.9",
     "globals": "^17.9.0",
     "html-webpack-plugin": "^5.6.7",
+    "husky": "^9.1.7",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1",
