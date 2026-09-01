@@ -65,11 +65,18 @@ const config: StorybookConfig = {
     });
 
     // --- Резолвинг абсолютных FSD-импортов (shared/..., app/..., widgets/... и т.д.) ---
+    // Явные алиасы вместо resolve.modules — иначе бажный npm-пакет "entities"
+    // в node_modules перехватывает импорты вида "entities/Counter", "entities/User".
     if (config.resolve) {
-      config.resolve.modules = [
-        ...(config.resolve.modules || []),
-        path.resolve(__dirname, '../../src'),
-      ];
+      config.resolve.alias = {
+        ...(config.resolve.alias || {}),
+        entities: path.resolve(__dirname, '../../src/entities'),
+        app: path.resolve(__dirname, '../../src/app'),
+        features: path.resolve(__dirname, '../../src/features'),
+        pages: path.resolve(__dirname, '../../src/pages'),
+        widgets: path.resolve(__dirname, '../../src/widgets'),
+        shared: path.resolve(__dirname, '../../src/shared'),
+      };
     }
 
     return config;

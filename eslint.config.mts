@@ -29,6 +29,7 @@ export default defineConfig([
       "react/react-in-jsx-scope": "off",
       "react/jsx-uses-react": "off",
       "@typescript-eslint/no-require-imports": "off",
+      "react/display-name": "off",
 
     },
   },

@@ -10,12 +10,12 @@ export enum ThemeButton {
   BACKGROUND_INVERTED = 'backgroundInverted'
 }
 
-export enum ButtonSize{
+export enum ButtonSize {
   M = 'sizeM',
   L = 'sizeL',
   XL = 'sizeXl'
 }
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /* Доп классы */
   className?: string;
   /** Тема кнопки */
@@ -24,14 +24,16 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   square?: boolean;
   /**Размер кнопки*/
   size?: ButtonSize;
+  /**Кнопка не активна */
+  disabled?: boolean
 
 }
 
 export function Button({
-  className, children, theme = ThemeButton.CLEAR, square = false,size = ButtonSize.M , ...otherProps
+  className, disabled, children, theme = ThemeButton.CLEAR, square = false, size = ButtonSize.M, ...otherProps
 }: ButtonProps) {
   return (
-    <button type="button" className={clsx(className, styles.button, styles[theme], {[styles.square]: square}, styles[size])} {...otherProps}>
+    <button type="button" disabled={disabled} className={clsx(className, styles.button, styles[theme],{[styles.disabled]: disabled}, { [styles.square]: square }, styles[size])} {...otherProps}>
       {children}
     </button>
   );

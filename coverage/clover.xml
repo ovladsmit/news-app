@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1788185197091" clover="3.2.0">
-  <project timestamp="1788185197091" name="All files">
+<coverage generated="1788246872826" clover="3.2.0">
+  <project timestamp="1788246872826" name="All files">
     <metrics statements="372" coveredstatements="347" conditionals="41" coveredconditionals="36" methods="22" coveredmethods="17" elements="435" coveredelements="400" complexity="0" loc="372" ncloc="372" packages="21" files="23" classes="23"/>
     <package name="config.jest">
       <metrics statements="19" coveredstatements="19" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
